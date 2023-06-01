@@ -24,5 +24,21 @@ export default function App() {
     load();
   }, []);
 
-  return <div>Your account is: {account}</div>;
+  return (
+    <div>
+      Your account is: {account}
+      <h1>Contacts</h1>
+      <ul>
+        {Object.keys(contacts).map((contact, index) => (
+          <li key={`${contacts[index].name}-${index}`}>
+            <h4>{contacts[index].name}</h4>
+            <span>
+              <b>Phone: </b>
+              {contacts[index].phone}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
